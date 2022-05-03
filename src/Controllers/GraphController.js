@@ -5,6 +5,10 @@ const graphController = {};
 graphController.graphRegister = async (req, res) => {
     const { source, target, distance } = req.body;
 
+    if(!source) return res.status(422).json({ message: 'Você precisa inserir um ponto de origem' });
+    if(!target) return res.status(422).json({ message: 'Você precisa inserir um valor para o ponto de destino' });
+    if(!distance) return res.status(422).json({ message: 'Você precisa inserir o valor da distância' })
+
     const graph = new GraphModel({
         data: [ { source, target, distance } ]
     });
