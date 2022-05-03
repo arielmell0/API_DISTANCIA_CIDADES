@@ -7,6 +7,7 @@ import routes from './src/routes/graphRoute';
 const app = express();
 const port = 3030;
 
+app.use(express.json())
 app.use(userRoutes);
 
 mongoose.connect(process.env.CONNECTIONSTRING)
