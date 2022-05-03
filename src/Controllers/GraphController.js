@@ -23,4 +23,14 @@ graphController.graphRegister = async (req, res) => {
     }
 }
 
+graphController.graphResponse = async (req, res) => {
+    try {
+        const graph = await GraphModel.find();
+
+        res.status(200).json(graph);
+    } catch (error) {
+        res.status(500).json( { erro: error });
+    }
+};
+
 export default graphController;

@@ -10,5 +10,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/graph', graphController.graphRegister);
+router.get('/graph', graphController.graphResponse);
 
 export default router;
