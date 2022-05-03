@@ -11,5 +11,6 @@ router.get('/', (req, res) => {
 
 router.post('/graph', graphController.graphRegister);
 router.get('/graph', graphController.graphResponse);
+router.get('/graph/:id', graphController.graphResponseByID);
 
 export default router;
