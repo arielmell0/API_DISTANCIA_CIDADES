@@ -4,4 +4,4 @@ const GraphModel = mongoose.model('Graph', {
     data: [{ source: String, target: String, distance: Number }]
 });
 
-module.exports = GraphModel;
+export default GraphModel;
