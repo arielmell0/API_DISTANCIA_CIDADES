@@ -1,6 +1,6 @@
 import express from 'express';
 
-import graphController from '../Controllers/GraphController.js';
+import GraphController from '../Controllers/GraphController.js';
 
 const router = express.Router();
 
@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
     res.status(200).json({ message: 'Conectado com sucesso a api' })
 })
 
-router.post('/graph', graphController.graphRegister);
-router.get('/graph', graphController.graphResponse);
-router.get('/graph/:id', graphController.graphResponseByID);
+router.post('/graph', GraphController.graphRegister);
+router.get('/graph', GraphController.graphResponse);
+router.get('/graph/:id', GraphController.graphResponseById);
 
 export default router;

@@ -1,8 +1,8 @@
 import GraphModel from '../Models/GraphModel.js';
 
-const graphController = {};
+const GraphController = {};
 
-graphController.graphRegister = async (req, res) => {
+GraphController.graphRegister = async (req, res) => {
     const { source, target, distance } = req.body;
 
     if(!source) return res.status(422).json({ message: 'Você precisa inserir um ponto de origem' });
@@ -23,7 +23,7 @@ graphController.graphRegister = async (req, res) => {
     }
 }
 
-graphController.graphResponse = async (req, res) => {
+GraphController.graphResponse = async (req, res) => {
     try {
         const graph = await GraphModel.find();
 
@@ -33,4 +33,21 @@ graphController.graphResponse = async (req, res) => {
     }
 };
 
-export default graphController;
+GraphController.graphResponseById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const graph = await GraphModel.findOne({ _id: id });
+
+        if(!graph) {
+            res.status(422).json({ message: 'Rota não foi encontrada' });
+            return
+        }
+
+        res.status(200).json(graph)
+    } catch (error) {
+        res.status(500).json({ erro: error });
+    }
+};
+
+export default GraphController;
