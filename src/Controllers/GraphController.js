@@ -3,12 +3,19 @@ import GraphModel from '../Models/GraphModel.js';
 const GraphController = {};
 
 GraphController.graphRegister = async (req, res) => {
-    const [ data ] = req.body;
-    const { source, target, distance } = data;
+    const data = req.body;
+    console.log(data)
+    const [ source, target, distance ] = data;
+    console.log(source)
 
-    if(!source) return res.status(422).json({ message: 'Você precisa inserir um ponto de origem' });
-    if(!target) return res.status(422).json({ message: 'Você precisa inserir um valor para o ponto de destino' });
-    if(!distance) return res.status(422).json({ message: 'Você precisa inserir o valor da distância' })
+    data.forEach((obj) => {
+        const { source, target, distance } = obj;
+        console.log(source)
+
+        if(!source) return res.status(422).json({ message: 'Você precisa inserir um ponto de origem' });
+        if(!target) return res.status(422).json({ message: 'Você precisa inserir um valor para o ponto de destino' });
+        if(!distance) return res.status(422).json({ message: 'Você precisa inserir o valor da distância' })
+    });
 
     const graph = new GraphModel({
         data: [ { source, target, distance } ]
