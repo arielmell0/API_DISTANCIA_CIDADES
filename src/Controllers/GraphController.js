@@ -3,7 +3,8 @@ import GraphModel from '../Models/GraphModel.js';
 const GraphController = {};
 
 GraphController.graphRegister = async (req, res) => {
-    const { source, target, distance } = req.body;
+    const [ data ] = req.body;
+    const { source, target, distance } = data;
 
     if(!source) return res.status(422).json({ message: 'Você precisa inserir um ponto de origem' });
     if(!target) return res.status(422).json({ message: 'Você precisa inserir um valor para o ponto de destino' });
