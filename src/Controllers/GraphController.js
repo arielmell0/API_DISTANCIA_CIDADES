@@ -50,4 +50,11 @@ GraphController.graphResponseById = async (req, res) => {
     }
 };
 
+GraphController.graphResponseAllRoutes = async (req, res) => {
+    const { graphId, source, target } = req.body;
+    const { maxStops } = req.params;
+
+    
+};
+
 export default GraphController;

@@ -13,4 +13,6 @@ router.post('/graph', GraphController.graphRegister);
 router.get('/graph', GraphController.graphResponse);
 router.get('/graph/:id', GraphController.graphResponseById);
 
+router.post('/routes/:graphId/from/:town1/to/:town2?maxStops=maxStops')
+
 export default router;
